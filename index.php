@@ -18,7 +18,13 @@ $text = '...'
         . '<span>31000</span>'
         . '</a>...';
 
-$htmlPage = file_get_contents('https://edadeal.ru/berdsk/retailers/maria-ra');
+//$htmlPage = file_get_contents('http://chatbotcollection.ru.host1588785.serv66.hostland.pro/category/6/');
+
+$ch = curl_init();  
+curl_setopt($ch, CURLOPT_URL, 'https://www.eldorado.ru/cat/detail/71377556/'); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+$htmlPage = curl_exec($ch); 
+curl_close($ch);
 
 file_put_contents($pathFileSrc, $htmlPage);
 
